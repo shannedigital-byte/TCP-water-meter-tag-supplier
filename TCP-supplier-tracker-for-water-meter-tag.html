@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body>
+<title>Meter Tag Quotes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: one short header with a contact tally, then Australia and China lists – a six-column table on desktop, one card per supplier on phones. */
+:root {
+  --bg: #f4f8f8;
+  --surface: #ffffff;
+  --fg: #12282a;
+  --muted: #5b7476;
+  --line: #d6e3e4;
+  --teal: #0b5f66;
+  --teal-2: #03afbb;
+  --yellow: #f5b800;
+  --field: #fffbea;
+  --yes: #1d7a3e; --yes-bg: #e1f4e7;
+  --wait: #9a5c00; --wait-bg: #fff1cf;
+  --none: #5b7476; --none-bg: #edf2f2;
+  --no: #a33a3a; --no-bg: #fbe6e6;
+  --display: "Barlow Semi Condensed", "Arial Narrow", Arial, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1a1b; --surface: #132527; --fg: #e3eeee; --muted: #93aeb0; --line: #24403f;
+    --teal: #5fd0d8; --teal-2: #2bb8c2; --yellow: #f5c33b; --field: #1c2b26;
+    --yes: #6fd394; --yes-bg: #123522; --wait: #f3b54a; --wait-bg: #3a2c10;
+    --none: #93aeb0; --none-bg: #1c3031; --no: #ef8a8a; --no-bg: #3c1a1a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1a1b; --surface: #132527; --fg: #e3eeee; --muted: #93aeb0; --line: #24403f;
+  --teal: #5fd0d8; --teal-2: #2bb8c2; --yellow: #f5c33b; --field: #1c2b26;
+  --yes: #6fd394; --yes-bg: #123522; --wait: #f3b54a; --wait-bg: #3a2c10;
+  --none: #93aeb0; --none-bg: #1c3031; --no: #ef8a8a; --no-bg: #3c1a1a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 15px/1.45 var(--body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 22px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 16px; }
+header { display: grid; gap: 8px; }
+h1 { margin: 0; font: 700 clamp(24px, 4vw, 32px)/1.15 var(--display); text-wrap: balance; }
+h1 .bar { display: inline-block; width: 9px; height: .8em; background: var(--yellow); margin-right: 10px; border-radius: 2px; vertical-align: -1px; }
+.spec { margin: 0; color: var(--muted); max-width: 75ch; }
+.tally { display: flex; flex-wrap: wrap; gap: 8px; min-height: 26px; }
+.chip { padding: 3px 10px; border-radius: 999px; font-weight: 600; font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.t-yes { color: var(--yes); background: var(--yes-bg); }
+.t-wait { color: var(--wait); background: var(--wait-bg); }
+.t-none { color: var(--none); background: var(--none-bg); }
+.saved { font-size: 13px; color: var(--muted); min-height: 1.2em; text-align: right; }
+section { display: grid; gap: 8px; }
+h2 { margin: 0; font: 700 15px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--teal); }
+.frame { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; table-layout: fixed; min-width: 960px; }
+col.c-sup { width: 17%; } col.c-ph { width: 14%; } col.c-em { width: 20%; } col.c-st { width: 23%; } col.c-q { width: 11%; } col.c-n { width: 15%; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: 0; }
+th { font: 600 12px/1.2 var(--body); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.sup b { display: block; }
+.sup span { display: block; color: var(--muted); font-size: 13px; }
+.val { overflow-wrap: anywhere; user-select: all; }
+.na { color: var(--muted); font-style: italic; font-size: 13px; }
+select, input { font: inherit; color: var(--fg); background: var(--field); border: 1px solid var(--line); border-radius: 6px; padding: 5px 7px; width: 100%; min-width: 0; }
+select.st { font-weight: 600; }
+select.st.s-yes { color: var(--yes); background: var(--yes-bg); }
+select.st.s-wait { color: var(--wait); background: var(--wait-bg); }
+select.st.s-none { color: var(--none); background: var(--none-bg); }
+select.st.s-no { color: var(--no); background: var(--no-bg); }
+select:focus-visible, input:focus-visible { outline: 2px solid var(--teal-2); outline-offset: 1px; }
+.empty { padding: 24px 16px; text-align: center; color: var(--muted); }
+
+/* Phones: one card per supplier. */
+@media (max-width: 760px) {
+  .frame { background: transparent; border: 0; overflow: visible; }
+  table, tbody { display: block; min-width: 0; }
+  thead, colgroup { display: none; }
+  tbody { display: grid; gap: 10px; }
+  tbody tr { display: grid; grid-template-columns: 1fr; gap: 10px 12px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  tbody td { display: block; padding: 0; border: 0; min-width: 0; }
+  tbody td.sup, tbody td.ph, tbody td.em, tbody td.n { grid-column: 1 / -1; }
+  tbody td[data-label]::before { content: attr(data-label); display: block; font: 600 11px/1.3 var(--body);
+    letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  td.sup b { font: 700 19px/1.2 var(--display); }
+  select, input { font-size: 16px; padding: 8px 10px; }
+  .empty { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+  .saved { text-align: left; }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1><span class="bar" aria-hidden="true"></span>Water Meter Tag – Supplier Tracker</h1>
+    <p class="spec">Option 2 tag · 90 × 45 mm waterproof PP/PVC · full colour both sides · quotes for 250 / 500 / 1,000. Update the status, quote and notes as you go – it saves for the whole team.</p>
+    <div class="tally" id="tally" aria-live="polite"></div>
+  </header>
+  <div class="saved" id="saved" role="status"></div>
+  <div id="lists">
+    <p class="empty" id="empty">Loading the supplier list…</p>
+  </div>
+</div>
+
+<script>
+const STATUSES = [
+  ["Not contacted", "s-none"], ["Emailed – waiting on quote", "s-wait"], ["Called – waiting on quote", "s-wait"],
+  ["Replied", "s-yes"], ["Quote received", "s-yes"], ["Not suitable", "s-no"]
+];
+const stClass = s => (STATUSES.find(x => x[0] === s) || STATUSES[0])[1];
+let db = null, data = [];
+const els = new Map(), queues = {};
+const lists = document.getElementById("lists");
+
+function flash(msg) {
+  const s = document.getElementById("saved"); s.textContent = msg;
+  clearTimeout(flash.t); flash.t = setTimeout(() => { s.textContent = ""; }, 2500);
+}
+function save(id, patch) {
+  if (!db) { flash("Sign in to claude.ai to save changes."); return; }
+  queues[id] = (queues[id] || Promise.resolve())
+    .then(() => db.doc("suppliers/" + id).update(patch))
+    .then(() => flash("Saved"))
+    .catch(e => flash(e && e.code === "permission_denied"
+      ? "You have view-only access, so this change wasn't saved."
+      : "Couldn't save that change. Check your connection and try again."));
+}
+function td(tr, cls, label) {
+  const c = document.createElement("td"); if (cls) c.className = cls; if (label) c.dataset.label = label;
+  tr.appendChild(c); return c;
+}
+function setContact(cell, v) {
+  if (cell._v === v) return; cell._v = v; cell.textContent = "";
+  const s = document.createElement("span");
+  if (!v || /^Not published/i.test(v)) { s.className = "na"; s.textContent = v ? v.replace(/^Not published\s*–\s*/i, "") : "—"; }
+  else { s.className = "val"; s.textContent = v; }
+  cell.appendChild(s);
+}
+function textField(cell, id, field, label, ph) {
+  const i = document.createElement("input"); i.type = "text"; i.id = field + "-" + id; i.placeholder = ph || "";
+  i.setAttribute("aria-label", label);
+  i.addEventListener("change", () => {
+    const row = data.find(r => r.id === id); const v = i.value.trim();
+    if (row && (row[field] || "") === v) return;
+    save(id, {[field]: v});
+  });
+  cell.appendChild(i); return i;
+}
+function buildRow(r) {
+  const tr = document.createElement("tr"); const e = {tr};
+  const sup = td(tr, "sup");
+  e.name = document.createElement("b"); e.loc = document.createElement("span"); sup.append(e.name, e.loc);
+  e.phone = td(tr, "ph", "Phone"); e.email = td(tr, "em", "Email");
+  const st = td(tr, "st-c", "Status");
+  e.st = document.createElement("select"); e.st.id = "status-" + r.id; e.st.setAttribute("aria-label", "Status for " + r.name);
+  STATUSES.forEach(([s]) => { const o = document.createElement("option"); o.value = s; o.textContent = s; e.st.appendChild(o); });
+  e.st.addEventListener("change", () => { e.st.className = "st " + stClass(e.st.value); save(r.id, {status: e.st.value}); });
+  st.appendChild(e.st);
+  e.quote = textField(td(tr, "q", "Quote"), r.id, "quote", "Quote from " + r.name, "");
+  e.notes = textField(td(tr, "n", "Notes"), r.id, "notes", "Notes for " + r.name, "");
+  return e;
+}
+function table(title, rows) {
+  const sec = document.createElement("section");
+  const h = document.createElement("h2"); h.textContent = title; sec.appendChild(h);
+  const frame = document.createElement("div"); frame.className = "frame";
+  const t = document.createElement("table");
+  const cg = document.createElement("colgroup");
+  ["c-sup", "c-ph", "c-em", "c-st", "c-q", "c-n"].forEach(c => { const col = document.createElement("col"); col.className = c; cg.appendChild(col); });
+  const th = document.createElement("thead"); const hr = document.createElement("tr");
+  ["Supplier", "Phone", "Email", "Status", "Quote", "Notes"].forEach(x => { const c = document.createElement("th"); c.textContent = x; hr.appendChild(c); });
+  th.appendChild(hr);
+  const tb = document.createElement("tbody");
+  rows.forEach(r => tb.appendChild(r));
+  t.append(cg, th, tb); frame.appendChild(t); sec.appendChild(frame);
+  return sec;
+}
+const idle = el => document.activeElement !== el;
+let sections = null;
+function render() {
+  if (!data.length) { sections = null; els.clear(); lists.textContent = ""; const p = document.createElement("p"); p.className = "empty"; p.textContent = "No suppliers yet. The list will appear here."; lists.appendChild(p); return; }
+  if (!sections) {
+    lists.textContent = "";
+    const wrap = document.createElement("div"); wrap.style.display = "grid"; wrap.style.gap = "20px";
+    sections = {};
+    ["Australia", "China"].forEach(name => {
+      const sec = table(name, []); sections[name] = {sec, body: sec.querySelector("tbody")};
+      wrap.appendChild(sec);
+    });
+    lists.appendChild(wrap);
+  }
+  const seen = new Set();
+  data.forEach(r => {
+    let e = els.get(r.id); if (!e) { e = buildRow(r); els.set(r.id, e); }
+    seen.add(r.id);
+    e.name.textContent = r.name || "";
+    e.loc.textContent = r.location || "";
+    setContact(e.phone, r.phone); setContact(e.email, r.email);
+    if (idle(e.st)) { e.st.value = STATUSES.some(s => s[0] === r.status) ? r.status : "Not contacted"; e.st.className = "st " + stClass(e.st.value); }
+    if (idle(e.quote)) e.quote.value = r.quote || "";
+    if (idle(e.notes)) e.notes.value = r.notes || "";
+    const target = (sections[r.region] || sections.Australia).body;
+    if (e.tr.parentNode !== target) target.appendChild(e.tr);
+  });
+  els.forEach((e, id) => { if (!seen.has(id)) { e.tr.remove(); els.delete(id); } });
+  Object.values(sections).forEach(s => { s.sec.hidden = !s.body.children.length; });
+
+  const tally = document.getElementById("tally"); tally.textContent = "";
+  const contacted = data.filter(r => r.status && r.status !== "Not contacted").length;
+  const replied = data.filter(r => r.status === "Replied" || r.status === "Quote received").length;
+  [[contacted + " of " + data.length + " contacted", "t-yes"], [replied + " replied", "t-yes"],
+   [(contacted - replied - data.filter(r => r.status === "Not suitable").length) + " waiting on a reply", "t-wait"],
+   [(data.length - contacted) + " not contacted yet", "t-none"]].forEach(([txt, cls]) => {
+    const c = document.createElement("span"); c.className = "chip " + cls; c.textContent = txt; tally.appendChild(c);
+  });
+}
+(async () => {
+  db = window.claude && window.claude.use ? await window.claude.use("db") : null;
+  if (!db) { document.getElementById("empty").textContent = "Sign in to claude.ai to see the tracker and save updates."; return; }
+  db.collection("suppliers").orderBy("order").onSnapshot(snap => {
+    data = snap.docs.map(d => Object.assign({id: d.id}, d.data()));
+    render();
+  }, () => { lists.textContent = "The tracker couldn't load. Reload the page to try again."; });
+})();
+</script>
+
+</body>
+</html>
